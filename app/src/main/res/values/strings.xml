@@ -3,4 +3,7 @@
     <string name="battles_button">Battles</string>
     <string name="characters_button">Characters</string>
     <string name="general_enemies_button">General Enemies</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
