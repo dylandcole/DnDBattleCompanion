@@ -1,5 +1,6 @@
 package com.csci448.cyberform.dndbattlecompanion;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,21 +10,35 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CampaignScrollActivity extends AppCompatActivity {
 
     private RecyclerView mSimpleScrollRecyclerView;
-
-    public static Context getContext() {
-        return this;
-    }
+    private CampaignScrollAdapter mAdapter;
+    private ArrayList<Campaign> campaigns = new ArrayList<Campaign>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_scroll);
+
+        mSimpleScrollRecyclerView = (RecyclerView) findViewById(R.id.simple_scroll_view);
         mSimpleScrollRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        for (int i = 0; i < 10; i++) {
+            Campaign campaign = new Campaign();
+            campaign.setName("TEST");
+            campaigns.add(campaign);
+        }
+
+        updateUI();
+    }
+
+    private void updateUI() {
+        mAdapter = new CampaignScrollAdapter(campaigns);
+        mSimpleScrollRecyclerView.setAdapter(mAdapter);
     }
 
     private class CampaignScrollHolder extends RecyclerView.ViewHolder {
@@ -41,7 +56,7 @@ public class CampaignScrollActivity extends AppCompatActivity {
 
         @Override
         public CampaignScrollHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new CampaignScrollHolder(LayoutInflater.from(LayoutInflater.from(CampaignScrollActivity.getContext())))
+            return new CampaignScrollHolder(getLayoutInflater(), parent);
         }
 
         @Override
