@@ -7,5 +7,24 @@ import java.util.ArrayList;
  */
 
 public class Battle {
-    ArrayList<Combatant> mCombatants = new ArrayList<Combatant>();
+    private String name;
+    private ArrayList<Combatant> mCombatants = new ArrayList<Combatant>();
+
+    //Getters and Setters
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Combatant> getCombatants() {
+        return mCombatants;
+    }
+
+    public void setCombatants(ArrayList<Combatant> combatants) {
+        mCombatants = combatants;
+    }
 }
