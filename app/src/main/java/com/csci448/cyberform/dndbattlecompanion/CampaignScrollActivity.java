@@ -1,13 +1,10 @@
 package com.csci448.cyberform.dndbattlecompanion;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +49,7 @@ public class CampaignScrollActivity extends AppCompatActivity {
         private Campaign mCampaign;
 
         public CampaignScrollHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.fragment_simple_scroll_select, parent, false));
+            super(inflater.inflate(R.layout.fragment_simple_scroll, parent, false));
 
             mCampaignSelectButton = (Button) itemView.findViewById(R.id.campaign_select_button);
             mCampaignSelectButton.setOnClickListener(new View.OnClickListener() {

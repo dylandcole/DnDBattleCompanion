@@ -208,12 +208,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
-                tools:text="Attacks"/>
+                android:text="@string/attacks_button"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
-                tools:text="Skills"/>
+                android:text="@string/skills_button"/>
         </LinearLayout>
 
         <LinearLayout
@@ -224,12 +224,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
-                tools:text="Statuses"/>
+                android:text="@string/statuses_button"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
-                tools:text="Abilities"/>
+                android:text="@string/abilities_button"/>
         </LinearLayout>
     </LinearLayout>
 

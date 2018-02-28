@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CampaignOptionActivity"></activity>
+        <activity android:name=".CombatantScrollActivity"></activity>
+        <activity android:name=".CombatantDetailActivity"></activity>
     </application>
 
 </manifest>

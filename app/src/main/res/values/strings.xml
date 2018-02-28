@@ -4,6 +4,8 @@
     <string name="characters_button">Characters</string>
     <string name="general_enemies_button">General Enemies</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="abilities_button">Abilities</string>
+    <string name="skills_button">Skills</string>
+    <string name="statuses_button">Statuses</string>
+    <string name="attacks_button">Attacks</string>
 </resources>
