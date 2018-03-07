@@ -59,7 +59,7 @@ public class BattleScrollActivity extends AppCompatActivity {
             mBattleSelectButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(BattleScrollActivity.this, CampaignOptionActivity.class);
+                    Intent intent = new Intent(BattleScrollActivity.this, CombatantQuickActivity.class);
                     startActivity(intent);
                 }
             });
