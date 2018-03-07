@@ -6,7 +6,7 @@
     android:padding="25dp">
 
     <Button
-        android:id="@+id/campaign_select_button"
+        android:id="@+id/simple_select_button"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:textSize="20dp"

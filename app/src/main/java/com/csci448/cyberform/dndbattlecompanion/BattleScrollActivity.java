@@ -55,7 +55,7 @@ public class BattleScrollActivity extends AppCompatActivity {
         public BattleScrollHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.fragment_simple_scroll, parent, false));
 
-            mBattleSelectButton = (Button) itemView.findViewById(R.id.battles_button);
+            mBattleSelectButton = (Button) itemView.findViewById(R.id.simple_select_button);
             mBattleSelectButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

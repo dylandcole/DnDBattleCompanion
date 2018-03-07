@@ -34,7 +34,8 @@ public class CampaignOptionActivity extends AppCompatActivity {
         mBattlesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO Begin battle selection activity
+                Intent intent = new Intent(CampaignOptionActivity.this, BattleScrollActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -51,7 +51,7 @@ public class CampaignScrollActivity extends AppCompatActivity {
         public CampaignScrollHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.fragment_simple_scroll, parent, false));
 
-            mCampaignSelectButton = (Button) itemView.findViewById(R.id.campaign_select_button);
+            mCampaignSelectButton = (Button) itemView.findViewById(R.id.simple_select_button);
             mCampaignSelectButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
