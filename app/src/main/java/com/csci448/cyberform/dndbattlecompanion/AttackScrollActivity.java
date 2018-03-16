@@ -1,6 +1,5 @@
 package com.csci448.cyberform.dndbattlecompanion;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,11 +21,11 @@ import java.util.List;
  * Created by Dylan on 2/28/2018.
  */
 
-public class CombatantQuickActivity extends AppCompatActivity {
+public class AttackScrollActivity extends AppCompatActivity {
 
     private RecyclerView mSimpleScrollRecyclerView;
-    private CharacterQuickAdapter mAdapter;
-    private ArrayList<Combatant> mCombatants = new ArrayList<Combatant>();
+    private AttackScrollActivity.AttackScrollAdapter mAdapter;
+    private ArrayList<Attack> mAttacks = new ArrayList<Attack>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,10 @@ public class CombatantQuickActivity extends AppCompatActivity {
         mSimpleScrollRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         for (int i = 0; i < 10; i++) {
-            Combatant combatant = new Combatant();
-            combatant.setName("Combatant " + Integer.toString(i));
-            mCombatants.add(combatant);
+            Attack attack = new Attack();
+            attack.setName("Attack " + Integer.toString(i));
+            attack.setString("4d6 + 3");
+            mAttacks.add(attack);
         }
 
         updateUI();
@@ -46,57 +47,59 @@ public class CombatantQuickActivity extends AppCompatActivity {
 
     //Runs to ensure the lists are up to date with the user's actions
     private void updateUI() {
-        mAdapter = new CharacterQuickAdapter(mCombatants);
+        mAdapter = new AttackScrollActivity.AttackScrollAdapter(mAttacks);
         mSimpleScrollRecyclerView.setAdapter(mAdapter);
     }
 
     //Inflates the defined fragment and determines fragment behavior
-    private class CharacterQuickHolder extends RecyclerView.ViewHolder {
+    private class AttackScrollHolder extends RecyclerView.ViewHolder {
 
-        private Combatant mCombatant;
-        private TextView mCombatantName;
+        private Attack mAttack;
+        private EditText mAttackName;
+        private EditText mAttackInfo;
 
-        public CharacterQuickHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.fragment_combatant_quick_small, parent, false));
-            mCombatantName = (TextView) itemView.findViewById(R.id.combatant_name);
-
+        public AttackScrollHolder(LayoutInflater inflater, ViewGroup parent) {
+            super(inflater.inflate(R.layout.fragment_attack_scroll, parent, false));
+            mAttackName = (EditText) itemView.findViewById(R.id.attack_name);
+            mAttackInfo = (EditText) itemView.findViewById(R.id.attack_info);
         }
 
-        public void bind(Combatant combatant) {
-            mCombatant = combatant;
-            mCombatantName.setText(mCombatant.getName());
+        public void bind(Attack attack) {
+            mAttack = attack;
+            mAttackName.setText(mAttack.getName());
+            mAttackInfo.setText(mAttack.getString());
             this.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(CombatantQuickActivity.this, CombatantDetailActivity.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(AttackScrollActivity.this, CombatantDetailActivity.class);
+                    //startActivity(intent);
                 }
             });
         }
     }
 
     //Needed class for Activity to interact with the fragment Holder
-    private class CharacterQuickAdapter extends RecyclerView.Adapter<CharacterQuickHolder> {
-        private List<Combatant> mCombatants;
+    private class AttackScrollAdapter extends RecyclerView.Adapter<AttackScrollActivity.AttackScrollHolder> {
+        private List<Attack> mAttacks;
 
-        public CharacterQuickAdapter(List<Combatant> combatants) {
-            mCombatants = combatants;
+        public AttackScrollAdapter(List<Attack> attacks) {
+            mAttacks = attacks;
         }
 
         @Override
-        public CharacterQuickHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new CharacterQuickHolder(getLayoutInflater(), parent);
+        public AttackScrollActivity.AttackScrollHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new AttackScrollActivity.AttackScrollHolder(getLayoutInflater(), parent);
         }
 
         @Override
-        public void onBindViewHolder(CharacterQuickHolder holder, int position) {
-            Combatant combatant = mCombatants.get(position);
-            holder.bind(combatant);
+        public void onBindViewHolder(AttackScrollActivity.AttackScrollHolder holder, int position) {
+            Attack attack = mAttacks.get(position);
+            holder.bind(attack);
         }
 
         @Override
         public int getItemCount() {
-            return mCombatants.size();
+            return mAttacks.size();
         }
     }
 
@@ -113,7 +116,7 @@ public class CombatantQuickActivity extends AppCompatActivity {
         Toast toast;
         switch(item.getItemId()) {
             case R.id.new_item:
-                toast = Toast.makeText(this, "Opens dialog to create new battle", Toast.LENGTH_LONG);
+                toast = Toast.makeText(this, "Creates blank attack", Toast.LENGTH_LONG);
                 toast.show();
                 break;
             case R.id.reorder:

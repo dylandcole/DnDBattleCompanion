@@ -18,8 +18,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.7"
-                tools:text="Name"/>
+                android:text="Name"/>
             <ImageButton
+                android:id="@+id/camera_button"
+                android:src="@drawable/camera_icon"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"/>
@@ -33,17 +35,20 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.33"
-                tools:text="Max HP"/>
+                android:inputType="number"
+                android:text="Max HP"/>
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.33"
-                tools:text="HP"/>
+                android:inputType="number"
+                android:text="HP"/>
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.33"
-                tools:text="AC"/>
+                android:inputType="number"
+                android:text="AC"/>
         </LinearLayout>
 
         <LinearLayout
@@ -54,16 +59,18 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.33"
-                tools:text="Speed"/>
+                android:inputType="number"
+                android:text="Speed"/>
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.33"
-                tools:text="Initiative"/>
-            <LinearLayout
+                android:inputType="number"
+                android:text="Initiative"/>
+            <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".33"></LinearLayout>
+                android:layout_weight=".33"></View>
         </LinearLayout>
     </LinearLayout>
 
@@ -75,6 +82,7 @@
 
         <!-- This should probably be done with a fragment. It appears in another layout too -->
         <LinearLayout
+            android:id="@+id/stat_bar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
@@ -89,10 +97,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.2"/>
                 <TextView
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.2"
-                    tools:text="STR"/>
+                    android:text="STR"/>
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -109,10 +118,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.2"/>
                 <TextView
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.2"
-                    tools:text="DEX"/>
+                    android:text="DEX"/>
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -129,10 +139,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.2"/>
                 <TextView
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.2"
-                    tools:text="CON"/>
+                    android:text="CON"/>
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -149,10 +160,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.2"/>
                 <TextView
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.2"
-                    tools:text="INT"/>
+                    android:text="INT"/>
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -169,10 +181,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.2"/>
                 <TextView
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.2"
-                    tools:text="WIS"/>
+                    android:text="WIS"/>
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -189,10 +202,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.2"/>
                 <TextView
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.2"
-                    tools:text="CHA"/>
+                    android:text="CHA"/>
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -205,11 +219,13 @@
             android:layout_height="0dp"
             android:layout_weight="0.2">
             <Button
+                android:id="@+id/attacks_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:text="@string/attacks_button"/>
             <Button
+                android:id="@+id/skills_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
@@ -221,11 +237,13 @@
             android:layout_height="0dp"
             android:layout_weight="0.2">
             <Button
+                android:id="@+id/statuses_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:text="@string/statuses_button"/>
             <Button
+                android:id="@+id/abilities_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"

@@ -7,6 +7,7 @@ package com.csci448.cyberform.dndbattlecompanion;
 public class Attack {
     private int mIconId;
     private String mString;
+    private String name;
 
     //Getters and Setters
 
@@ -24,5 +25,13 @@ public class Attack {
 
     public void setString(String string) {
         mString = string;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -21,6 +21,10 @@
         <activity android:name=".CombatantScrollActivity"></activity>
         <activity android:name=".CombatantDetailActivity"></activity>
         <activity android:name=".CombatantQuickActivity"></activity>
+        <activity android:name=".AttackScrollActivity"></activity>
+        <activity android:name=".AbilitiesActivity"></activity>
+        <activity android:name=".SkillsActivity"></activity>
+        <activity android:name=".StatusesActivity"></activity>
     </application>
 
 </manifest>

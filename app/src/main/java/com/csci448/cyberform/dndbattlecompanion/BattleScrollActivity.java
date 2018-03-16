@@ -6,9 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +59,7 @@ public class BattleScrollActivity extends AppCompatActivity {
         public BattleScrollHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.fragment_simple_scroll, parent, false));
 
+            //Button starts new activity
             mBattleSelectButton = (Button) itemView.findViewById(R.id.simple_select_button);
             mBattleSelectButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -94,4 +99,26 @@ public class BattleScrollActivity extends AppCompatActivity {
         public int getItemCount() {
             return mBattles.size();
         }
-}}
+
+
+}
+    //Menu Methods
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.add_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.new_item:
+                Toast toast = Toast.makeText(this, "Opens dialog to create new battle", Toast.LENGTH_LONG);
+                toast.show();
+            default:
+
+        }
+        return true;
+    }
+}

@@ -3,8 +3,12 @@ package com.csci448.cyberform.dndbattlecompanion;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Created by dwdco on 2/28/2018.
@@ -47,5 +51,25 @@ public class CampaignOptionActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        setTitle("Campaign Options");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_campaign_options, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.create_notification:
+                Toast toast = Toast.makeText(this, "Opens popup for the user to set a weekly preparation reminder", Toast.LENGTH_LONG);
+                toast.show();
+            default:
+
+        }
+        return true;
     }
 }
