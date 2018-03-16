@@ -63,6 +63,14 @@ public class CampaignScrollActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            mCampaignSelectButton.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    Toast toast = Toast.makeText(CampaignScrollActivity.this, "Opens delete dialog", Toast.LENGTH_LONG);
+                    toast.show();
+                    return true;
+                }
+            });
         }
 
         public void bind(Campaign campaign) {
@@ -108,7 +116,7 @@ public class CampaignScrollActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.new_item:
-                Toast toast = Toast.makeText(this, "Opens dialog to create new battle", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, "Opens dialog to create new campaign", Toast.LENGTH_LONG);
                 toast.show();
             default:
 

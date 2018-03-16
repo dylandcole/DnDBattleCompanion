@@ -100,11 +100,11 @@
 
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:id="@+id/combatant_detail_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/more_icon" />
+            android:background="@drawable/more_icon" />
 
     </LinearLayout>
 

@@ -68,6 +68,14 @@ public class BattleScrollActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            mBattleSelectButton.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    Toast toast = Toast.makeText(BattleScrollActivity.this, "Opens delete dialog", Toast.LENGTH_LONG);
+                    toast.show();
+                    return true;
+                }
+            });
         }
 
         public void bind(Battle battle) {

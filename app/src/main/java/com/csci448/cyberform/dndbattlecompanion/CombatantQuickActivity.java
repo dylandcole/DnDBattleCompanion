@@ -1,7 +1,9 @@
 package com.csci448.cyberform.dndbattlecompanion;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,11 +59,20 @@ public class CombatantQuickActivity extends AppCompatActivity {
 
         private Combatant mCombatant;
         private TextView mCombatantName;
+        private ImageView mCombatantDetail;
 
         public CharacterQuickHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.fragment_combatant_quick_small, parent, false));
             mCombatantName = (TextView) itemView.findViewById(R.id.combatant_name);
 
+            mCombatantDetail = (ImageView) itemView.findViewById(R.id.combatant_detail_button);
+            mCombatantDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(CombatantQuickActivity.this, CombatantDetailActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
 
         public void bind(Combatant combatant) {
@@ -68,8 +81,16 @@ public class CombatantQuickActivity extends AppCompatActivity {
             this.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(CombatantQuickActivity.this, CombatantDetailActivity.class);
-                    startActivity(intent);
+                    Toast toast = Toast.makeText(CombatantQuickActivity.this, "Expands view to show second attack, saving throws, speed, and buttons to quickly edit statuses or health", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            });
+            this.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    Toast toast = Toast.makeText(CombatantQuickActivity.this, "Opens delete dialog", Toast.LENGTH_LONG);
+                    toast.show();
+                    return true;
                 }
             });
         }
@@ -113,8 +134,44 @@ public class CombatantQuickActivity extends AppCompatActivity {
         Toast toast;
         switch(item.getItemId()) {
             case R.id.new_item:
-                toast = Toast.makeText(this, "Opens dialog to create new battle", Toast.LENGTH_LONG);
-                toast.show();
+                AlertDialog newCombatant = new AlertDialog.Builder(this)
+                        .setTitle("New Combatant")
+                        .setMessage("Add a premade combatant or add new?")
+                        .setPositiveButton("Premade",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        AlertDialog premadeChoice = new AlertDialog.Builder(CombatantQuickActivity.this)
+                                                .setTitle("New Combatant")
+                                                .setMessage("Add from characters or general enemies?")
+                                                .setPositiveButton("Characters", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                                        Intent intent = new Intent(CombatantQuickActivity.this, CombatantScrollActivity.class);
+                                                        startActivity(intent);
+                                                    }
+                                                })
+                                                .setNegativeButton("G. Enemies", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                                        Intent intent = new Intent(CombatantQuickActivity.this, CombatantScrollActivity.class);
+                                                        startActivity(intent);
+                                                    }
+                                                })
+                                                .create();
+                                        premadeChoice.show();
+                                    }
+                                })
+                        .setNegativeButton("New",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Intent intent = new Intent(CombatantQuickActivity.this, CombatantDetailActivity.class);
+                                        startActivity(intent);
+                                    }
+                                })
+                        .create();
+                newCombatant.show();
                 break;
             case R.id.reorder:
                 toast = Toast.makeText(this, "Allows user to drag items to reorder", Toast.LENGTH_LONG);

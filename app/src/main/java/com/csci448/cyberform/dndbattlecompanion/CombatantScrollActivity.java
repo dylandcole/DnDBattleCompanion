@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +67,14 @@ public class CombatantScrollActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(CombatantScrollActivity.this, CombatantDetailActivity.class);
                     startActivity(intent);
+                }
+            });
+            this.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    Toast toast = Toast.makeText(CombatantScrollActivity.this, "Opens delete dialog", Toast.LENGTH_LONG);
+                    toast.show();
+                    return true;
                 }
             });
         }
