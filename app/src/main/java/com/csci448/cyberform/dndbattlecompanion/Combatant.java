@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Combatant {
     //Overall Attributes
+    private int mId;
     private String mName;
     private int mHp;
     private int mHpMax;

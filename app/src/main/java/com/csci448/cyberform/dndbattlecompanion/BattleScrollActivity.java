@@ -23,6 +23,7 @@ import java.util.List;
 
 public class BattleScrollActivity extends AppCompatActivity {
 
+    private int mCampaignId;
     private RecyclerView mSimpleScrollRecyclerView;
     private BattleScrollActivity.BattleScrollAdapter mAdapter;
     private ArrayList<Battle> battles = new ArrayList<Battle>();

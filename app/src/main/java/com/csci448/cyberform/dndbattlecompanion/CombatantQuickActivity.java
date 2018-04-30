@@ -27,6 +27,7 @@ import java.util.List;
 
 public class CombatantQuickActivity extends AppCompatActivity {
 
+    private int mBattleId;
     private RecyclerView mSimpleScrollRecyclerView;
     private CharacterQuickAdapter mAdapter;
     private ArrayList<Combatant> mCombatants = new ArrayList<Combatant>();

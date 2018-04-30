@@ -12,6 +12,8 @@ import android.widget.Toast;
  */
 
 public class StatusesActivity extends AppCompatActivity {
+
+    private int mCombatantId;
     LinearLayout mStatusBlock;
 
     @Override

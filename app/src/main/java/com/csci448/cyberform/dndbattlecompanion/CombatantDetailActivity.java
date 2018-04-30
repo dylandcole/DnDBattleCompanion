@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 public class CombatantDetailActivity extends AppCompatActivity {
 
+    private int mCombatantId;
     Button mAttacksButton;
     Button mAbilitiesButton;
     Button mSkillsButton;

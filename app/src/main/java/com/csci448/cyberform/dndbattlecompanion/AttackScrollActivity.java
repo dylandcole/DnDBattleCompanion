@@ -23,6 +23,7 @@ import java.util.List;
 
 public class AttackScrollActivity extends AppCompatActivity {
 
+    private int mCombatantId;
     private RecyclerView mSimpleScrollRecyclerView;
     private AttackScrollActivity.AttackScrollAdapter mAdapter;
     private ArrayList<Attack> mAttacks = new ArrayList<Attack>();

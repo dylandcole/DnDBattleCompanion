@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class SkillsActivity extends AppCompatActivity {
 
+    private int mCombatantId;
     LinearLayout mStatBar;
     LinearLayout mSkillBlock;
 

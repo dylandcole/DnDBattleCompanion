@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Campaign {
+    private int mId;
     private String mName;
     private ArrayList<Battle> mBattles = new ArrayList<Battle>();
     private ArrayList<Combatant> mCharacters = new ArrayList<Combatant>();
