@@ -82,8 +82,8 @@ public class CombatantDetailActivity extends AppCompatActivity {
         mCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(CombatantDetailActivity.this, "Opens camera activity. Allows user to take a picture or display a picture taken.", Toast.LENGTH_LONG);
-                toast.show();
+                Intent intent = new Intent(CombatantDetailActivity.this, CameraActivity.class);
+                startActivity(intent);
             }
         });
     }

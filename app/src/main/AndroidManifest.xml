@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.csci448.cyberform.dndbattlecompanion">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,6 +29,21 @@
         <activity android:name=".AbilitiesActivity"></activity>
         <activity android:name=".SkillsActivity"></activity>
         <activity android:name=".StatusesActivity"></activity>
+        <activity android:name=".CameraActivity"></activity>
+        <activity android:name=".FullCameraActivity"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.csci448.cyberform.dndbattlecompanion.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files"/>
+
+        </provider>
+
     </application>
 
 </manifest>
