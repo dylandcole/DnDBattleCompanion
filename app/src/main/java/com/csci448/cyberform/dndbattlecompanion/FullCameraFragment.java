@@ -53,7 +53,9 @@ public class FullCameraFragment extends Fragment implements View.OnTouchListener
 
         mPhotoFile = mPhotoFile = getPhotoFile();
 
-         mFullPhotoView = (ImageView) v.findViewById(R.id.full_photo_view);
+        mFullPhotoView = (ImageView) v.findViewById(R.id.full_photo_view);
+
+        mFullPhotoView.setOnTouchListener(this);
 
         updatePhotoView();
 
