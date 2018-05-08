@@ -8,7 +8,7 @@ public class Attack {
     private int mIconId;
     private String mString;
     private String name;
-
+    
     //Getters and Setters
 
     public int getIconId() {
